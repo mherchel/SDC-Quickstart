@@ -1,0 +1,77 @@
+/**
+ * @file
+ * Example CSS for a card component.
+ */
+
+ .card {
+  --spacing: var(--sp2, 20px);
+
+  position: relative; /* Anchor arrow.svg. */
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  container-type: inline-size;
+}
+
+.card__link {
+  display: block;
+}
+
+.card__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.card__top img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card__title {
+  font-size: 1.5rem;
+  margin-block: 0 1rem;
+}
+
+.card__bottom {
+  padding-block: 0 var(--spacing);
+  padding-inline: var(--spacing);
+}
+
+.card .arrow {
+  position: absolute;
+  inset-inline-end: var(--spacing);
+  inset-block-end: var(--spacing);
+  color: var(--color-text-primary-medium, navy);
+}
+
+[dir="rtl"] .card .arrow {
+  scale: -1; /* Flip horizontally if RTL */
+}
+
+@container (inline-size > 400px) {
+  .card__inner {
+    flex-direction: row;
+  }
+
+  .card__top img {
+    height: 100%;
+    aspect-ratio: revert;
+  }
+
+  .card__top {
+    flex-basis: max(150px, 40%);
+    flex-shrink: 0;
+  }
+
+  .card__top :is(.field, a) {
+    display: flex;
+    height: 100%;
+  }
+
+  .card__bottom {
+    padding-block: var(--spacing);
+    padding-inline: 0 var(--spacing);
+  }
+}

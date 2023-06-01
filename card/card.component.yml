@@ -1,0 +1,38 @@
+name: Card
+props:
+  type: object
+  required:
+    - attributes
+    - content_attributes
+    - classes
+    - url
+    - label
+    - title_element
+    - content
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    content_attributes:
+      type: Drupal\Core\Template\Attribute
+    classes:
+      type: array
+    title_prefix:
+      type: array
+    title_suffix:
+      type: array
+    url:
+      type: string
+    label:
+      type: string
+    title_element:
+      type: string
+    image:
+      type: object
+    content:
+      type: object
+slots:
+  card_content: {}
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

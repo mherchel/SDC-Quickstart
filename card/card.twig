@@ -1,0 +1,20 @@
+<article {{ attributes.addClass(classes).addClass('card').removeClass('node--view-mode-teaser') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  <div class="card__inner">
+    {% if image %}
+      <div class="card__top"> {{ image }}</div>
+    {% endif %}
+    <div {{ content_attributes.addClass('card__bottom') }}>
+      <a href="{{ url }}">
+        <{{ title_element }} class="card__title">
+          {{ label }}
+        </{{ title_element }}>
+      </a>
+      {% block card_content %}{% endblock %}
+    </div>
+  </div>
+
+  {# Arrow SVG that appears in the bottom right. #}
+  {{ include(componentMetadata.path ~ '/images/arrow.svg' )}}
+</article>
