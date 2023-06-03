@@ -78,7 +78,7 @@ libraryOverrides:
 <p>Within this file, paste the following code:</p>
 
 <pre>
-<code class="language-html language-php">&lt;article {{ attributes.addClass(classes).addClass('card').removeClass('node--view-mode-teaser') }}&gt;
+<code class="language-html language-php">&lt;article {{ attributes.addClass(classes).addClass('card') }}&gt;
   {{ title_prefix }}
   {{ title_suffix }}
   &lt;div class="card__inner"&gt;
@@ -245,7 +245,6 @@ libraryOverrides:
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
 

@@ -1,0 +1,28 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+  ]
+%}
+
+{% embed 'olivero:card' with {
+    attributes,
+    content_attributes,
+    classes,
+    title_prefix,
+    title_suffix,
+    url,
+    label,
+    title_element: title_element ?: 'h2',
+    image: content.field_image,
+    content,
+  } only %}
+
+  {% block card_content %}
+    {{ content|without('field_image', 'links') }}
+  {% endblock %}
+
+{% endembed %}
